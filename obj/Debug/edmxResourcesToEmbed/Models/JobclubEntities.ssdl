@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TimebizjobsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="JobApplication">
+    <Key>
+      <PropertyRef Name="JobApplicationid" />
+    </Key>
+    <Property Name="JobApplicationid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Jobid" Type="int" />
+    <Property Name="Companyid" Type="int" />
+    <Property Name="Userid" Type="int" />
+    <Property Name="AppliedDate" Type="datetime" />
+    <Property Name="resumepath" Type="varchar" MaxLength="2000" />
+  </EntityType>
+  <EntityType Name="TimebizCategory">
+    <Key>
+      <PropertyRef Name="Categoryid" />
+    </Key>
+    <Property Name="Categoryid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Category" Type="varchar" MaxLength="1000" />
+    <Property Name="Imagepath" Type="varchar" MaxLength="2000" />
+  </EntityType>
+  <EntityType Name="TimebizCompany">
+    <Key>
+      <PropertyRef Name="Companyid" />
+    </Key>
+    <Property Name="Companyid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Companyname" Type="varchar" MaxLength="1000" />
+    <Property Name="Website" Type="varchar" MaxLength="1000" />
+    <Property Name="Mobileno" Type="varchar" MaxLength="100" />
+    <Property Name="Phoneno" Type="varchar" MaxLength="100" />
+    <Property Name="Email" Type="varchar" MaxLength="1000" />
+    <Property Name="Password" Type="varchar" MaxLength="1000" />
+    <Property Name="Address" Type="varchar" MaxLength="1000" />
+    <Property Name="Imagepath" Type="varchar" MaxLength="1000" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="District" Type="varchar" MaxLength="1000" />
+    <Property Name="Userid" Type="int" />
+    <Property Name="islogincreated" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="TimebizDistrict">
+    <Key>
+      <PropertyRef Name="Districtid" />
+    </Key>
+    <Property Name="Districtid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="District" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="TimebizJobs">
+    <Key>
+      <PropertyRef Name="Jobid" />
+    </Key>
+    <Property Name="Jobid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="JobTitle" Type="varchar" MaxLength="1000" />
+    <Property Name="JobType" Type="varchar" MaxLength="100" />
+    <Property Name="CategoryId" Type="int" />
+    <Property Name="DistrictId" Type="int" />
+    <Property Name="Designation" Type="varchar" MaxLength="1000" />
+    <Property Name="Description" Type="varchar" MaxLength="2000" />
+    <Property Name="Salary" Type="int" />
+    <Property Name="Companyname" Type="varchar" MaxLength="1000" />
+    <Property Name="Website" Type="varchar" MaxLength="1000" />
+    <Property Name="Phoneno" Type="varchar" MaxLength="1000" />
+    <Property Name="Email" Type="varchar" MaxLength="1000" />
+    <Property Name="Vacancy" Type="int" />
+    <Property Name="Jobworkday" Type="varchar" MaxLength="1000" />
+    <Property Name="Jobworktime" Type="varchar" MaxLength="1000" />
+    <Property Name="Address" Type="varchar" MaxLength="1000" />
+    <Property Name="Experience" Type="varchar" MaxLength="1000" />
+    <Property Name="Qualification" Type="varchar" MaxLength="1000" />
+    <Property Name="Skills" Type="varchar" MaxLength="2000" />
+    <Property Name="FeaturedImagepath" Type="varchar" MaxLength="1000" />
+    <Property Name="DateOfInterview" Type="datetime" />
+    <Property Name="Companyid" Type="int" />
+    <Property Name="Category" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="Timebizusers">
+    <Key>
+      <PropertyRef Name="Userid" />
+    </Key>
+    <Property Name="Userid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="1000" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="1000" Nullable="false" />
+    <Property Name="Roles" Type="varchar" MaxLength="1000" />
+    <Property Name="LastLogin" Type="datetime" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="Name" Type="varchar" MaxLength="1000" />
+    <Property Name="Mobileno" Type="varchar" MaxLength="100" />
+    <Property Name="District" Type="varchar" MaxLength="1000" />
+    <Property Name="Address" Type="varchar" MaxLength="2000" />
+    <Property Name="CurrentCompany" Type="varchar" MaxLength="1000" />
+    <Property Name="Experience" Type="varchar" MaxLength="100" />
+    <Property Name="Skills" Type="varchar" MaxLength="5000" />
+    <Property Name="Gender" Type="varchar" MaxLength="100" />
+    <Property Name="DOB" Type="varchar" MaxLength="100" />
+    <Property Name="UserImagePath" Type="varchar" MaxLength="2000" />
+    <Property Name="ResumePath" Type="varchar" MaxLength="2000" />
+    <Property Name="Email" Type="varchar" MaxLength="1000" />
+    <Property Name="Companyid" Type="int" />
+    <Property Name="qualitfications" Type="varchar" MaxLength="2000" />
+  </EntityType>
+  <EntityContainer Name="TimebizjobsModelStoreContainer">
+    <EntitySet Name="JobApplication" EntityType="Self.JobApplication" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TimebizCategory" EntityType="Self.TimebizCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TimebizCompany" EntityType="Self.TimebizCompany" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TimebizDistrict" EntityType="Self.TimebizDistrict" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TimebizJobs" EntityType="Self.TimebizJobs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Timebizusers" EntityType="Self.Timebizusers" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

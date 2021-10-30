@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TimebizjobsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="JobApplication">
+          <Key>
+            <PropertyRef Name="JobApplicationid" />
+          </Key>
+          <Property Name="JobApplicationid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Jobid" Type="int" />
+          <Property Name="Companyid" Type="int" />
+          <Property Name="Userid" Type="int" />
+          <Property Name="AppliedDate" Type="datetime" />
+          <Property Name="resumepath" Type="varchar" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="TimebizCategory">
+          <Key>
+            <PropertyRef Name="Categoryid" />
+          </Key>
+          <Property Name="Categoryid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Category" Type="varchar" MaxLength="1000" />
+          <Property Name="Imagepath" Type="varchar" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="TimebizCompany">
+          <Key>
+            <PropertyRef Name="Companyid" />
+          </Key>
+          <Property Name="Companyid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Companyname" Type="varchar" MaxLength="1000" />
+          <Property Name="Website" Type="varchar" MaxLength="1000" />
+          <Property Name="Mobileno" Type="varchar" MaxLength="100" />
+          <Property Name="Phoneno" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="1000" />
+          <Property Name="Password" Type="varchar" MaxLength="1000" />
+          <Property Name="Address" Type="varchar" MaxLength="1000" />
+          <Property Name="Imagepath" Type="varchar" MaxLength="1000" />
+          <Property Name="IsActive" Type="int" />
+          <Property Name="District" Type="varchar" MaxLength="1000" />
+          <Property Name="Userid" Type="int" />
+          <Property Name="islogincreated" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TimebizDistrict">
+          <Key>
+            <PropertyRef Name="Districtid" />
+          </Key>
+          <Property Name="Districtid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="District" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="TimebizJobs">
+          <Key>
+            <PropertyRef Name="Jobid" />
+          </Key>
+          <Property Name="Jobid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JobTitle" Type="varchar" MaxLength="1000" />
+          <Property Name="JobType" Type="varchar" MaxLength="100" />
+          <Property Name="CategoryId" Type="int" />
+          <Property Name="DistrictId" Type="int" />
+          <Property Name="Designation" Type="varchar" MaxLength="1000" />
+          <Property Name="Description" Type="varchar" MaxLength="2000" />
+          <Property Name="Salary" Type="int" />
+          <Property Name="Companyname" Type="varchar" MaxLength="1000" />
+          <Property Name="Website" Type="varchar" MaxLength="1000" />
+          <Property Name="Phoneno" Type="varchar" MaxLength="1000" />
+          <Property Name="Email" Type="varchar" MaxLength="1000" />
+          <Property Name="Vacancy" Type="int" />
+          <Property Name="Jobworkday" Type="varchar" MaxLength="1000" />
+          <Property Name="Jobworktime" Type="varchar" MaxLength="1000" />
+          <Property Name="Address" Type="varchar" MaxLength="1000" />
+          <Property Name="Experience" Type="varchar" MaxLength="1000" />
+          <Property Name="Qualification" Type="varchar" MaxLength="1000" />
+          <Property Name="Skills" Type="varchar" MaxLength="2000" />
+          <Property Name="FeaturedImagepath" Type="varchar" MaxLength="1000" />
+          <Property Name="DateOfInterview" Type="datetime" />
+          <Property Name="Companyid" Type="int" />
+          <Property Name="Category" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="Timebizusers">
+          <Key>
+            <PropertyRef Name="Userid" />
+          </Key>
+          <Property Name="Userid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Roles" Type="varchar" MaxLength="1000" />
+          <Property Name="LastLogin" Type="datetime" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="IsActive" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="1000" />
+          <Property Name="Mobileno" Type="varchar" MaxLength="100" />
+          <Property Name="District" Type="varchar" MaxLength="1000" />
+          <Property Name="Address" Type="varchar" MaxLength="2000" />
+          <Property Name="CurrentCompany" Type="varchar" MaxLength="1000" />
+          <Property Name="Experience" Type="varchar" MaxLength="100" />
+          <Property Name="Skills" Type="varchar" MaxLength="5000" />
+          <Property Name="Gender" Type="varchar" MaxLength="100" />
+          <Property Name="DOB" Type="varchar" MaxLength="100" />
+          <Property Name="UserImagePath" Type="varchar" MaxLength="2000" />
+          <Property Name="ResumePath" Type="varchar" MaxLength="2000" />
+          <Property Name="Email" Type="varchar" MaxLength="1000" />
+          <Property Name="Companyid" Type="int" />
+          <Property Name="qualitfications" Type="varchar" MaxLength="2000" />
+        </EntityType>
+        <EntityContainer Name="TimebizjobsModelStoreContainer">
+          <EntitySet Name="JobApplication" EntityType="Self.JobApplication" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TimebizCategory" EntityType="Self.TimebizCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TimebizCompany" EntityType="Self.TimebizCompany" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TimebizDistrict" EntityType="Self.TimebizDistrict" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TimebizJobs" EntityType="Self.TimebizJobs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Timebizusers" EntityType="Self.Timebizusers" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TimebizjobsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TimebizCategory">
+          <Key>
+            <PropertyRef Name="Categoryid" />
+          </Key>
+          <Property Name="Categoryid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Category" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Imagepath" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TimebizDistrict">
+          <Key>
+            <PropertyRef Name="Districtid" />
+          </Key>
+          <Property Name="Districtid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="District" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="TimebizjobsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TimebizCategories" EntityType="Self.TimebizCategory" />
+          <EntitySet Name="TimebizDistricts" EntityType="Self.TimebizDistrict" />
+          <EntitySet Name="TimebizCompanies" EntityType="TimebizjobsModel.TimebizCompany" />
+          <EntitySet Name="TimebizJobs" EntityType="TimebizjobsModel.TimebizJob" />
+          <EntitySet Name="Timebizusers" EntityType="TimebizjobsModel.Timebizuser" />
+          <EntitySet Name="JobApplications" EntityType="TimebizjobsModel.JobApplication" />
+        </EntityContainer>
+        <EntityType Name="TimebizCompany">
+          <Key>
+            <PropertyRef Name="Companyid" />
+          </Key>
+          <Property Name="Companyid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Companyname" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Website" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Mobileno" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Phoneno" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Imagepath" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Int32" />
+          <Property Name="District" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Userid" Type="Int32" />
+          <Property Name="islogincreated" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TimebizJob">
+          <Key>
+            <PropertyRef Name="Jobid" />
+          </Key>
+          <Property Name="Jobid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JobTitle" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="JobType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryId" Type="Int32" />
+          <Property Name="DistrictId" Type="Int32" />
+          <Property Name="Designation" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="Salary" Type="Int32" />
+          <Property Name="Companyname" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Website" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Phoneno" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Vacancy" Type="Int32" />
+          <Property Name="Jobworkday" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Jobworktime" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Experience" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Qualification" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Skills" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="FeaturedImagepath" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="DateOfInterview" Type="DateTime" Precision="3" />
+          <Property Name="Companyid" Type="Int32" />
+          <Property Name="Category" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Timebizuser">
+          <Key>
+            <PropertyRef Name="Userid" />
+          </Key>
+          <Property Name="Userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Roles" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="LastLogin" Type="DateTime" Precision="3" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Mobileno" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="District" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentCompany" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Experience" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Skills" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UserImagePath" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="ResumePath" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Companyid" Type="Int32" />
+          <Property Name="qualitfications" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="JobApplication">
+          <Key>
+            <PropertyRef Name="JobApplicationid" />
+          </Key>
+          <Property Name="JobApplicationid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Jobid" Type="Int32" />
+          <Property Name="Companyid" Type="Int32" />
+          <Property Name="Userid" Type="Int32" />
+          <Property Name="AppliedDate" Type="DateTime" Precision="3" />
+          <Property Name="resumepath" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TimebizjobsModelStoreContainer" CdmEntityContainer="TimebizjobsEntities">
+          <EntitySetMapping Name="TimebizCategories">
+            <EntityTypeMapping TypeName="TimebizjobsModel.TimebizCategory">
+              <MappingFragment StoreEntitySet="TimebizCategory">
+                <ScalarProperty Name="Categoryid" ColumnName="Categoryid" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Imagepath" ColumnName="Imagepath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TimebizDistricts">
+            <EntityTypeMapping TypeName="TimebizjobsModel.TimebizDistrict">
+              <MappingFragment StoreEntitySet="TimebizDistrict">
+                <ScalarProperty Name="Districtid" ColumnName="Districtid" />
+                <ScalarProperty Name="District" ColumnName="District" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TimebizCompanies">
+            <EntityTypeMapping TypeName="TimebizjobsModel.TimebizCompany">
+              <MappingFragment StoreEntitySet="TimebizCompany">
+                <ScalarProperty Name="islogincreated" ColumnName="islogincreated" />
+                <ScalarProperty Name="Userid" ColumnName="Userid" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Imagepath" ColumnName="Imagepath" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phoneno" ColumnName="Phoneno" />
+                <ScalarProperty Name="Mobileno" ColumnName="Mobileno" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Companyname" ColumnName="Companyname" />
+                <ScalarProperty Name="Companyid" ColumnName="Companyid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TimebizJobs">
+            <EntityTypeMapping TypeName="TimebizjobsModel.TimebizJob">
+              <MappingFragment StoreEntitySet="TimebizJobs">
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Companyid" ColumnName="Companyid" />
+                <ScalarProperty Name="DateOfInterview" ColumnName="DateOfInterview" />
+                <ScalarProperty Name="FeaturedImagepath" ColumnName="FeaturedImagepath" />
+                <ScalarProperty Name="Skills" ColumnName="Skills" />
+                <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+                <ScalarProperty Name="Experience" ColumnName="Experience" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Jobworktime" ColumnName="Jobworktime" />
+                <ScalarProperty Name="Jobworkday" ColumnName="Jobworkday" />
+                <ScalarProperty Name="Vacancy" ColumnName="Vacancy" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phoneno" ColumnName="Phoneno" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Companyname" ColumnName="Companyname" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="JobType" ColumnName="JobType" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="Jobid" ColumnName="Jobid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Timebizusers">
+            <EntityTypeMapping TypeName="TimebizjobsModel.Timebizuser">
+              <MappingFragment StoreEntitySet="Timebizusers">
+                <ScalarProperty Name="qualitfications" ColumnName="qualitfications" />
+                <ScalarProperty Name="Companyid" ColumnName="Companyid" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ResumePath" ColumnName="ResumePath" />
+                <ScalarProperty Name="UserImagePath" ColumnName="UserImagePath" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Skills" ColumnName="Skills" />
+                <ScalarProperty Name="Experience" ColumnName="Experience" />
+                <ScalarProperty Name="CurrentCompany" ColumnName="CurrentCompany" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="Mobileno" ColumnName="Mobileno" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
+                <ScalarProperty Name="Roles" ColumnName="Roles" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Userid" ColumnName="Userid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobApplications">
+            <EntityTypeMapping TypeName="TimebizjobsModel.JobApplication">
+              <MappingFragment StoreEntitySet="JobApplication">
+                <ScalarProperty Name="resumepath" ColumnName="resumepath" />
+                <ScalarProperty Name="AppliedDate" ColumnName="AppliedDate" />
+                <ScalarProperty Name="Userid" ColumnName="Userid" />
+                <ScalarProperty Name="Companyid" ColumnName="Companyid" />
+                <ScalarProperty Name="Jobid" ColumnName="Jobid" />
+                <ScalarProperty Name="JobApplicationid" ColumnName="JobApplicationid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
